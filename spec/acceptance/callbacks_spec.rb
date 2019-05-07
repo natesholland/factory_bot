@@ -138,9 +138,9 @@ describe "custom callbacks" do
       end
     end
 
-    FactoryBot.register_strategy(:custom_before, custom_before)
-    FactoryBot.register_strategy(:custom_after, custom_after)
-    FactoryBot.register_strategy(:totally_custom, totally_custom)
+    FactoryBot::Internal.register_strategy(:custom_before, custom_before)
+    FactoryBot::Internal.register_strategy(:custom_after, custom_after)
+    FactoryBot::Internal.register_strategy(:totally_custom, totally_custom)
 
     FactoryBot.define do
       factory :user do

@@ -18,6 +18,12 @@ describe FactoryBot do
     expect(FactoryBot.trait_by_name(trait.name)).to eq trait
   end
 
+  it "finds a registered strategy" do
+    FactoryBot::Internal.register_strategy(:strategy_name, :strategy_class)
+    expect(FactoryBot::Internal.strategy_by_name(:strategy_name)).
+      to eq :strategy_class
+  end
+
   describe ".use_parent_strategy" do
     it "is true by default" do
       expect(FactoryBot.use_parent_strategy).to be true
